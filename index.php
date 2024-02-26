@@ -37,11 +37,19 @@ require_once "./main.php";
         <?php foreach($hotels as $hotel): ?>
           <tr>
             <!-- sintassi ridotta per stampare (echo)  -->
-            <td><?= $hotel["name"] ?></td>
-            <td><?= $hotel["description"] ?></td>
-            <td><?= $hotel["parking"] ?></td>
-            <td><?= $hotel["vote"] ?></td>
-            <td><?= $hotel["distance_to_center"] ?></td>
+            <td><?= $hotel["name"]; ?></td>
+            <td><?= $hotel["description"]; ?></td>
+            <td><?php 
+
+            // aggiungo if per stampare SI e NO, anziche 1 o 0
+            if ($hotel["parking"] == true) {
+              echo "SI";
+            } else {
+              echo "NO";
+            }
+            ?></td>
+            <td><?= $hotel["vote"]; ?></td>
+            <td><?= $hotel["distance_to_center"]; ?></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
