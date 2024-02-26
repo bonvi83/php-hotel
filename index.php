@@ -17,6 +17,7 @@ require_once "./main.php";
     <title>PHP Hotel</title>
   </head>
   <body>
+    <h1>Hotel</h1>
     <!-- creo il form per filtrare hotel che hanno parcheggio -->
     <form action="">inserire form</form>
 
@@ -33,11 +34,16 @@ require_once "./main.php";
       </thead>
 
       <tbody>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
+        <?php foreach($hotels as $hotel): ?>
+          <tr>
+            <!-- sintassi ridotta per stampare (echo)  -->
+            <td><?= $hotel["name"] ?></td>
+            <td><?= $hotel["description"] ?></td>
+            <td><?= $hotel["parking"] ?></td>
+            <td><?= $hotel["vote"] ?></td>
+            <td><?= $hotel["distance_to_center"] ?></td>
+          </tr>
+        <?php endforeach; ?>
       </tbody>
     </table>
   </body>
