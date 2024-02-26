@@ -3,7 +3,7 @@ require_once "./main.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,9 +19,22 @@ require_once "./main.php";
   <body>
     <h1>Hotel</h1>
     <!-- creo il form per filtrare hotel che hanno parcheggio -->
-    <form action="">inserire form</form>
+    <div class="container">
+      <form action="./result.php" method="GET">
+        <!-- fondamentale aggiungere name -->
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label">Parking choice:</label>
+          <select id="disabledSelect" class="form-select" name="filterSelect">
+            <option>YES</option>
+            <option>NO</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Select</button>
+      </form>
+    </div>
 
     <!-- Creo la tabella per inserire i risultati -->
+    <section class="container">
     <table class="table">
       <thead>
         <tr>
@@ -54,5 +67,6 @@ require_once "./main.php";
         <?php endforeach; ?>
       </tbody>
     </table>
+    </section>
   </body>
 </html>
