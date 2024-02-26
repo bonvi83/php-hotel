@@ -38,3 +38,4 @@
     ];
 ?>
 
+<!-- creo un ciclo per stampare la lista degli hotel in bvase alla scelta del parcheggio -->

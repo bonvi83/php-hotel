@@ -16,22 +16,31 @@ require_once "./main.php";
     />
     <title>PHP Hotel</title>
   </head>
+
   <body>
-    <h1>Hotel</h1>
+    <h1 class="text-center">Hotels</h1>
+
     <!-- creo il form per filtrare hotel che hanno parcheggio -->
-    <div class="container">
-      <form action="./result.php" method="GET">
-        <!-- fondamentale aggiungere name -->
+    <section class="container pb-4">
+      <form action="./index.php" method="GET">
+        <!-- fondamentale aggiungere name altrimenti php "non lo trova" -->
         <div class="mb-3">
           <label for="disabledSelect" class="form-label">Parking choice:</label>
-          <select id="disabledSelect" class="form-select" name="filterSelect">
+          <select id="disabledSelect" class="form-select" name="filter-select">
             <option>YES</option>
             <option>NO</option>
           </select>
         </div>
         <button type="submit" class="btn btn-primary">Select</button>
       </form>
-    </div>
+    </section>
+
+    <!-- stampo a schermo la mia selezione per controllare il funzionamento -->
+    <?php 
+      if(isset($_GET["filter-select"])){
+        echo $_GET["filter-select"];
+      }
+    ?>
 
     <!-- Creo la tabella per inserire i risultati -->
     <section class="container">
@@ -48,19 +57,30 @@ require_once "./main.php";
 
       <tbody>
         <?php foreach($hotels as $hotel): ?>
+
+          <!-- creo un if per stampare in base alla scelta -->
+          <!-- commento il mio if <?php 
+          if ($_GET["filter-select"] == true) {
+            echo "ok parcheggio";
+          } else {
+            echo "NO parcheggio";
+          }
+          ?> devo trovare il modo per farlo funzionare-->
+
           <tr>
             <!-- sintassi ridotta per stampare (echo)  -->
             <td><?= $hotel["name"]; ?></td>
             <td><?= $hotel["description"]; ?></td>
             <td><?php 
 
-            // aggiungo if per stampare SI e NO, anziche 1 o 0
+            // aggiungo if per stampare YES e NO, anziche 1 o 0
             if ($hotel["parking"] == true) {
-              echo "SI";
+              echo "YES";
             } else {
               echo "NO";
             }
             ?></td>
+
             <td><?= $hotel["vote"]; ?></td>
             <td><?= $hotel["distance_to_center"]; ?></td>
           </tr>
