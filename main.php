@@ -39,11 +39,9 @@
     ];
 
     // creo una variabile per stampare la lista degli hotels in base alla scelta del parcheggio -->
-    $filter_parking = isset($GET["check-parking"]) ? true : false;
+    $filter_parking = isset($_GET["check-parking"]) ? true : false;
     // var_dump($filter_parking);
-
-    array_filter($hotels,function($hotel){
-        return $hotel["parking"] == true;
-    }, ARRAY_FILTER_USE_BOTH);
-    // con $index dopo $hotel, mi dice che ovviamente non è dichiarata
+    if ($filter_parking) {
+        $hotels = array_filter($hotels, fn($hotel) => $hotel["parking"]);
+    }
 ?>
