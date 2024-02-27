@@ -1,4 +1,5 @@
 <?php
+    // arrey di hotel dato dall'esercizio
     $hotels = [
         [
             'name' => 'Hotel Belvedere',
@@ -36,6 +37,13 @@
             'distance_to_center' => 50
         ],
     ];
-?>
 
-<!-- creo un ciclo per stampare la lista degli hotel in bvase alla scelta del parcheggio -->
+    // creo una variabile per stampare la lista degli hotels in base alla scelta del parcheggio -->
+    $filter_parking = isset($GET["check-parking"]) ? true : false;
+    // var_dump($filter_parking);
+
+    array_filter($hotels,function($hotel){
+        return $hotel["parking"] == true;
+    }, ARRAY_FILTER_USE_BOTH);
+    // con $index dopo $hotel, mi dice che ovviamente non è dichiarata
+?>

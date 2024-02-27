@@ -25,22 +25,13 @@ require_once "./main.php";
       <form action="./index.php" method="GET">
         <!-- fondamentale aggiungere name altrimenti php "non lo trova" -->
         <div class="mb-3">
-          <label for="disabledSelect" class="form-label">Parking choice:</label>
-          <select id="disabledSelect" class="form-select" name="filter-select">
-            <option>YES</option>
-            <option>NO</option>
-          </select>
+        <input class="form-check-input" type="checkbox" name="check-parking" id="check-parking">
+        <!-- <?php echo $filter_parking ? "checked" : "" ?> -->
+          <label class="form-check-label" for="check-parking">Filtra hotels con parcheggio</label>
+          <button class="btn btn-primary">Filtra</button>
         </div>
-        <button type="submit" class="btn btn-primary">Select</button>
       </form>
     </section>
-
-    <!-- stampo a schermo la mia selezione per controllare il funzionamento -->
-    <?php 
-      if(isset($_GET["filter-select"])){
-        echo $_GET["filter-select"];
-      }
-    ?>
 
     <!-- Creo la tabella per inserire i risultati -->
     <section class="container">
