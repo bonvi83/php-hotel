@@ -41,6 +41,7 @@
     // creo una variabile per stampare la lista degli hotels in base alla scelta del parcheggio -->
     $filter_parking = isset($_GET["check-parking"]) ? true : false;
     // var_dump($filter_parking);
+
     if ($filter_parking) {
         $hotels = array_filter($hotels, fn($hotel) => $hotel["parking"]);
     }
